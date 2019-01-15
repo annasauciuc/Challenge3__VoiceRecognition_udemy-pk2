@@ -9,8 +9,6 @@ class App extends Component {
 
   }
   onListeClick(){
-  
-    
    // fetch(' https://gateway-lon.watsonplatform.net/speech-to-text/api')
    fetch('http://localhost:3002/api/speech-to-text/token')
   .then(function(response) {
@@ -25,7 +23,7 @@ class App extends Component {
     stream.on('data', (data) => {
       console.log(data);
       this.setState({
-    text:data.alternatives[0].transcript
+       text:data.alternatives[0].transcript
         })   
     });
     stream.on('error', function(err) {
@@ -40,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
     <button onClick={this.onListeClick.bind(this)}>Listen to michrofone </button>
     <div> {this.state.text}</div>
         </header>
